@@ -56,3 +56,11 @@
     .low-priority {
 	color: #383d41;
     }
+    
+    ul.long-items {
+        word-wrap: break-word;
+    }
+
+    ul.long-items li{
+        padding-bottom: 10px;
+    }
