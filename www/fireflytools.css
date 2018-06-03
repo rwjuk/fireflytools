@@ -1,0 +1,36 @@
+    body {
+      padding-top: 5rem;
+    }
+    .starter-template {
+      padding: 3rem 0.5rem;
+      text-align: left;
+    }
+    h2.pageheading {
+      text-align:center;
+    }
+    .container {
+      margin-left: 0;
+    }
+
+    tr.row-rotate th {
+      height: 250px;
+      white-space: nowrap;
+    }
+
+    tr.row-rotate th > div {
+      transform:
+        /* Magic Numbers */
+        translate(32px, 0px)
+        /* 45 is really 360 - 45 */
+        rotate(315deg);
+      width: 30px;
+    }
+
+    tr.row-rotate th > div > span {
+      border-bottom: 1px solid #dee2e6;
+      padding: 10px 10px;
+    }
+
+    .table td {
+      border: 1px solid #dee2e6;
+    }

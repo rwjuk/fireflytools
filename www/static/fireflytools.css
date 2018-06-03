@@ -1,0 +1,58 @@
+    body {
+      padding-top: 5rem;
+    }
+    main {
+	font-size: 80%;
+    }
+    .starter-template {
+      padding: 3rem 0.5rem;
+      text-align: left;
+    }
+    h2 {
+      text-align:center;
+    }
+    h5 {
+      text-align: center;
+    }
+    h5.timestamp {
+      font-size: 0.8rem;
+    }
+    .container {
+      margin: 0 auto;
+    }
+
+    tr.row-rotate th {
+      height: 165px;
+      white-space: nowrap;
+    }
+
+    tr.row-rotate th > div {
+      transform:
+        rotate(315deg)
+	translate(-1.2vw, 0);
+      width: 30px;
+    }
+
+    tr.row-rotate th > div > span {
+	padding:10px;
+    }
+
+    tr td:nth-child(2n+3) {
+	background: #efefef;
+    }
+
+    .table td {
+      border: 1px solid #dee2e6;
+    }
+
+    .high-priority {
+	color: #721c24;	
+    }
+
+    .med-priority {
+	color: #856404;
+    }
+
+    .low-priority {
+	color: #383d41;
+    }

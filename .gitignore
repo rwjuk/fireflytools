@@ -1,0 +1,15 @@
+.*
+!.gitignore
+
+www/python/src/data/
+www/python/venv/
+dbtest/
+logs/
+
+cron*
+*.out
+*.err
+
+replica.my.cnf
+service.manifest
+uwsgi.log
