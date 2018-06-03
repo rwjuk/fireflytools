@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Longest redirects on {{wiki}}</h2>
+	<h5 class="timestamp">As of {{timestamp}}</h5>
+        <table class="table">
+          <thead>
+          <tbody>
+            {% for namespace, redirect in entries.items() %}
+            <tr><td><a href="https://{{ wiki|replace('wiki','') }}.wikipedia.org/wiki/{{namespace_names[namespace]}}{{redirect}}">{{namespace_names[namespace]}}{{redirect}}</a></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+{% endblock content %}

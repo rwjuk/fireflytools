@@ -1,50 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Firefly Tools - Linter Errors</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="//tools-static.wmflabs.org/fireflytools/fireflytools.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Fire<em>f</em>ly Tools</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="fireflynav">
-        <ul class="navbar-nav mr-auto">
-	  <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/fireflytools/linter/enwiki" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Linter errors by namespace</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="/fireflytools/linter/enwiki">enwiki</a>
-              <a class="dropdown-item" href="/fireflytools/linter/dewiki">dewiki</a>
-              <a class="dropdown-item" href="/fireflytools/linter/commonswiki">commons</a>
-              <a class="dropdown-item" href="/fireflytools/linter/simplewiki">simplewiki</a>
-              <a class="dropdown-item" href="/fireflytools/linter/metawiki">meta</a>
-              <a class="dropdown-item" href="/fireflytools/linter/enwiktionary">enwiktionary</a>
-              <a class="dropdown-item" href="/fireflytools/linter/wikidatawiki">wikidata</a>
-              <a class="dropdown-item" href="/fireflytools/linter/enwikivoyage">enwikivoyage</a>
-            </div>
-          </li>     
-        </ul>
-      </div>
-    </nav>
-
-    <main role="main" class="container">
-
-	<h2>Outstanding linter errors on {{wiki}}</h2>
+{% extends 'base.html' %}
+{% block content %}
+<h2>Outstanding linter errors on {{wiki}}</h2>
 	<h5 class="timestamp">As of {{timestamp}}</h5>
         <table class="table">
           <thead>
@@ -91,16 +47,4 @@
             {% endfor %}
           </tbody>
         </table>
-
-    </main><!-- /.container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.slim.min.js"><\/script>')</script>
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/popper.js/1.13.0/esm/popper.min.js"></script>
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </body>
-</html>
-
+{% endblock content %}

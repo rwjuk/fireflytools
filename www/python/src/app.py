@@ -13,13 +13,19 @@ namespace_names = {0:"Main", 1:"Talk", 2:"User", 3:"User talk", 4:"Project", 5:"
 #with open('config.json') as f:
 #    conf = json.load(f)
 
+def render_from_pickle_data(wiki, data_file_name, template_name):
+    data_file_path = "data/{}_{}.dat".format(data_file_name, wiki)
+    linter_data = ("{}:{}".format(namespace_names[ns], redirect) for ns, redirect in pickle.load(open(data_file_path, "rb")))
+    return render_template(template_name, entries=linter_data, namespace_names=namespace_names, wiki=wiki, timestamp=datetime.utcfromtimestamp(data_file_mtime).strftime("%Y-%m-%d %H:%M:%S"))
+
 @app.template_filter()
 def number_format(value):
-	return "{:,}".format(value)
+    return "{:,}".format(value)
 
 @app.route('/linter/<wiki>')
 def linter(wiki):
-	data_file_path = "data/linter_counts_{}.dat".format(wiki)
-	data_file_mtime = path.getmtime(data_file_path)
-	linter_data = pickle.load(open(data_file_path, "rb"))
-	return render_template("linter_counts.html", entries=linter_data, namespace_names=namespace_names, wiki=wiki, timestamp=datetime.utcfromtimestamp(data_file_mtime).strftime("%Y-%m-%d %H:%M:%S"))
+    return render_from_pickle_data(wiki, "linter_counts", "linter_counts.html")
+
+@app.route('/longredirects/<wiki>')
+def longredirects(wiki):
+    return render_from_pickle_data(wiki, "long_redirects", "long_redirects.html")
