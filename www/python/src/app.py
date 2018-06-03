@@ -15,6 +15,7 @@ namespace_names = {0:"Main", 1:"Talk", 2:"User", 3:"User talk", 4:"Project", 5:"
 
 def render_from_pickle_data(wiki, data_file_name, template_name):
     data_file_path = "data/{}_{}.dat".format(data_file_name, wiki)
+    data_file_mtime = path.getmtime(data_file_path)
     linter_data = ("{}:{}".format(namespace_names[ns], redirect) for ns, redirect in pickle.load(open(data_file_path, "rb")))
     return render_template(template_name, entries=linter_data, namespace_names=namespace_names, wiki=wiki, timestamp=datetime.utcfromtimestamp(data_file_mtime).strftime("%Y-%m-%d %H:%M:%S"))
 
