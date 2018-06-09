@@ -36,3 +36,7 @@ def longredirects(wiki):
 @app.route('/emptypages/<wiki>')
 def emptypages(wiki):
     return render_from_pickle_data(wiki, "empty_pages", "empty_pages.html", no_main=True)
+    
+@app.route('/orphanedtalks/<wiki>')
+def orphanedtalks(wiki):
+    return render_from_pickle_data(wiki, "g8_candidates", "g8_candidates.html", no_main=True)
