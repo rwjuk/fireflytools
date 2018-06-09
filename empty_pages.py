@@ -20,8 +20,8 @@ empties = []
 
 with conn.cursor() as cur:
 	now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-	print("{} - Running long redirect query on wiki {}".format(now, wiki))
+	print("{} - Running empty page query on wiki {}".format(now, wiki))
 	cur.execute("select page_namespace, page_title from page where page_is_redirect=False and page_len=0 and page_namespace in (0,4,6,8,10,100) and page_title not like '%/%'  order by page_len limit {};".format(limit))
-	empties = [ns, e.decode("utf-8") for ns, e in  list(cur.fetchall())]
+	empties = [(ns, e.decode("utf-8")) for ns, e in list(cur.fetchall())]
 
 pickle.dump(empties, open("/data/project/fireflytools/www/python/src/data/empty_pages_{}.dat".format(wiki), "wb"))
