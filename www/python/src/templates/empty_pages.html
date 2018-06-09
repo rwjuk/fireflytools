@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Empty pages on {{wiki}}</h2>
+	<h5 class="timestamp">As of {{timestamp}}</h5>
+        <ul class="long-items">
+            {% for namespace, redirect in entries %}
+            <li><a href="https://{{ wiki|replace('wiki','') }}.wikipedia.org/wiki/{{namespace_names[namespace]}}{% if namespace_names[namespace] != "" %}:{% endif %}{{redirect}}">{{namespace_names[namespace]}}{% if namespace_names[namespace] != "" %}:{% endif %}{{redirect}}</a></li>
+            {% endfor %}
+        </ul>
+{% endblock content %}

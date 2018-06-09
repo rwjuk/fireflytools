@@ -32,3 +32,7 @@ def linter(wiki):
 @app.route('/longredirects/<wiki>')
 def longredirects(wiki):
     return render_from_pickle_data(wiki, "long_redirects", "long_redirects.html", no_main=True)
+
+@app.route('/emptypages/<wiki>')
+def emptypages(wiki):
+    return render_from_pickle_data(wiki, "empty_pages", "empty_pages.html", no_main=True)
