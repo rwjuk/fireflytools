@@ -40,3 +40,7 @@ def emptypages(wiki):
 @app.route('/orphanedtalks/<wiki>')
 def orphanedtalks(wiki):
     return render_from_pickle_data(wiki, "g8_candidates", "g8_candidates.html", no_main=True)
+    
+@app.route('/baduserpages/<wiki>')
+def baduserpages(wiki):
+    return render_from_pickle_data(wiki, "u2_candidates", "u2_candidates.html", no_main=True)
