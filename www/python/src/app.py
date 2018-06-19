@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, Response, render_template
+from flask import Flask, request, Response, render_template, redirect
 from os import path
 from datetime import datetime
 import json
 import pickle
+import toolforge
 
 app = Flask(__name__)
 
@@ -44,3 +45,16 @@ def orphanedtalks(wiki):
 @app.route('/baduserpages/<wiki>')
 def baduserpages(wiki):
     return render_from_pickle_data(wiki, "u2_candidates", "u2_candidates.html", no_main=True)
+
+@app.route('/draftdiff/lastreview/<draft_title>')
+def draftdiff_lastreview(draft_title):
+    conn = toolforge.connect("enwiki")
+    with conn.cursor() as cur:
+        review_diff_id_q = 'select rev_id from revision where rev_page=(select page_id from page where page_title="{}" and page_namespace=118) and rev_comment like "Declining submission%" order by rev_timestamp desc;'.format(draft_title.replace(r"Draft:",r'').replace(r"draft:",r""))
+        cur.execute(review_diff_id_q)
+        review_diff_id = cur.fetchone()[0]
+        cur_diff_id_q = 'select rev_id from revision where rev_page=(select page_id from page where page_title="{}" and page_namespace=118) order by rev_timestamp desc limit 1;'.format(draft_title.replace(r"Draft:",r'').replace(r"draft:",r""))
+        cur.execute(cur_diff_id_q)
+        cur_diff_id = cur.fetchone()[0]
+    return redirect("https://en.wikipedia.org/wiki/Special:Diff/{}/{}".format(review_diff_id, cur_diff_id), code=303)
+    
