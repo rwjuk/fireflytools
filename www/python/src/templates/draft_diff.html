@@ -2,12 +2,11 @@
 {% block content %}
 <h2>Draft diff tool</h2>
 	<p>Some explanatory text goes here.</p>
-        <form>
+        <form action="#" class="draftdiff-form">
           <div class="form-group">
-            <label for="draft-title">Draft title</label>
             <input type="text" class="form-control" id="draft-title" aria-describedby="title-help" placeholder="Draft title">
-          </div>
           <button type="submit" class="btn btn-primary" id="go-last-review-diff">Submit</button>
+          </div>
         </form>
 {% endblock content %}
 
@@ -16,7 +15,7 @@
 $(document).ready(function(){
     $("#go-last-review-diff").click(function(){
         var draftTitle = $("#draft-title").val();
-        draftTitle.replace(" ", "_").replace("Draft:", "").replace("draft:","");
+        draftTitle = draftTitle.replace(" ", "_").replace("Draft:", "").replace("draft:","");
         window.open("/fireflytools/draftdiff/lastreview/" + encodeURIComponent(draftTitle), "_blank");
     });
 });

@@ -11,3 +11,10 @@ wait
 ./linter_counts.py enwikivoyage &
 ./linter_counts.py enwiktionary &
 wait
+./linter_counts.py ptwiki &
+./linter_counts.py zhwiki &
+./linter_counts.py srwiki &
+./linter_counts.py arwiki &
+./linter_counts.py viwiki &
+./linter_counts.py plwiki &
+wait

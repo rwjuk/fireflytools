@@ -59,6 +59,6 @@ def draftdiff_lastreview(draft_title):
     return redirect("https://en.wikipedia.org/wiki/Special:Diff/{}/{}".format(review_diff_id, cur_diff_id), code=303)
     
 @app.route('/draftdiff')
-def draftdiff_form(draft_title):
+def draftdiff_form():
     return render_template("draft_diff.html")
     
