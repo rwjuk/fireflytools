@@ -52,7 +52,10 @@ def draftdiff_lastreview(draft_title):
     with conn.cursor() as cur:
         review_diff_id_q = 'select rev_id from revision where rev_page=(select page_id from page where page_title="{}" and page_namespace=118) and rev_comment like "Declining submission%" order by rev_timestamp desc;'.format(draft_title.replace(r"Draft:",r'').replace(r"draft:",r""))
         cur.execute(review_diff_id_q)
-        review_diff_id = cur.fetchone()[0]
+        review_diff_fetch = cur.fetchone()
+        if review_diff_fetch is None:
+            return Response("No previous review found", status=418)
+        review_diff_id = review_diff_fetch[0]
         cur_diff_id_q = 'select rev_id from revision where rev_page=(select page_id from page where page_title="{}" and page_namespace=118) order by rev_timestamp desc limit 1;'.format(draft_title.replace(r"Draft:",r'').replace(r"draft:",r""))
         cur.execute(cur_diff_id_q)
         cur_diff_id = cur.fetchone()[0]
