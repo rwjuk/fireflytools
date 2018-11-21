@@ -17,5 +17,4 @@ wait
 ./linter_counts.py arwiki &
 ./linter_counts.py viwiki &
 ./linter_counts.py plwiki &
-./linter_counts.py mlwiki &
 wait
