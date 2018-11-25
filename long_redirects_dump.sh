@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/bash
 cd /data/project/fireflytools
 source /venv/bin/activate
 ./long_redirects.py enwiki 1000 &
