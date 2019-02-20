@@ -1,2 +1,12 @@
 2019-02-17 06:28:56: (log.c.164) server started 
 2019-02-17 06:45:56: (server.c.1558) server stopped by UID = 0 PID = 0 
+2019-02-17 07:10:14: (log.c.164) server started 
+2019-02-17 07:15:56: (server.c.1558) server stopped by UID = 0 PID = 0 
+2019-02-17 07:49:56: (log.c.166) server started 
+2019-02-17 07:52:31: (server.c.1442) [note] graceful shutdown started 
+2019-02-17 07:52:31: (server.c.1558) server stopped by UID = 53758 PID = 25471 
+2019-02-19 13:40:46: (log.c.166) server started 
+2019-02-19 17:07:23: (server.c.1442) [note] graceful shutdown started 
+2019-02-19 17:07:23: (server.c.1558) server stopped by UID = 53758 PID = 20854 
+2019-02-19 17:07:43: (log.c.164) server started 
+2019-02-20 17:26:10: (server.c.1558) server stopped by UID = 0 PID = 0 
