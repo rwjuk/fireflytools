@@ -1,0 +1,9 @@
+{
+    "name": "fireflytools",
+    "title": "Firefly Tools",
+    "description": "A Wikipedia tool to display count of various lint errors.",
+    "url": "http://tools.wmflabs.org/admin/tool/firefly-maintainer1",
+    "keywords": "wikipedia, stats, enwiki, user, python",
+    "author": "Firefly,Adithyak1997",
+    "repository": "https://github.com/adithyak04/fireflytools"
+}
