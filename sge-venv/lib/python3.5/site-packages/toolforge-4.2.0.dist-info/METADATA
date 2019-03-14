@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: toolforge
+Version: 4.2.0
+Summary: Small library for common tasks on Wikimedia Toolforge
+Home-page: https://wikitech.wikimedia.org/wiki/User:Legoktm/toolforge_library
+Author: Kunal Mehta
+Author-email: legoktm@member.fsf.org
+License: GPL-3.0+
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: pymysql
+
+UNKNOWN
+
+

@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /data/project/fireflytools
-source www/python/venv/bin/activate
+source $HOME/sge-venv/bin/activate
 ./g8_candidates.py enwiki 1000 &
 wait

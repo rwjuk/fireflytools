@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /data/project/fireflytools
-source www/python/venv/bin/activate
+source $HOME/sge-venv/bin/activate
 ./linter_counts.py enwiki &
 ./linter_counts.py dewiki &
 ./linter_counts.py commonswiki &
