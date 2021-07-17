@@ -81,3 +81,46 @@
     .draftdiff-form input[type='text'] {
            width: 60%;
     }
+    tr.closed {
+        background-color: cornsilk;
+    }
+    tr td.cell-total {
+        font-weight: bold;
+    }
+table#botedits{
+        margin: 0 auto;
+        font-size: 120%;
+}
+.jquery-modal > .modal{
+        max-width: none;
+        width: 80%; 
+        overflow: initial;
+        margin-top: 70px;
+        font-size: initial;
+}
+table.diff {
+        /*table-layout: fixed;*/
+        width: 100%;
+}
+table.diff td {
+        width: max-content;
+        font-family: monospace;
+}
+table.diff td:nth-child(3n) {
+        word-wrap: anywhere;
+}
+table.diff td.diff_header {
+        text-align: center;
+}
+table.diff td.diff_next a {
+        display:none;
+}
+span.diff_sub {
+        background-color: #faa;
+}
+span.diff_add {
+        background-color: #afa;
+}
+span.diff_chg {
+        background-color: #ff7;
+}

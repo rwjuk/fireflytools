@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Edits for bot task "{{task_name}}"</h2>
+<table id="botedits">
+        <thead><tr><th colspan=2>Page</th></tr></thead>
+        <tbody>
+        {% for page_title in page_list %}
+        <tr><td data-pagetitle="{{page_title}}"><a href="https://en.wikipedia.org/wiki/{{page_title}}">{{page_title}}</a></td><td><a href="/botedits/{{task_name}}/{{page_title}}" rel="modal:open"  class="show-diff">[Show diff]</a></td></tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% endblock content %}
+
+{% block extra_scripts %}
+<script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css" />
+{% endblock extra_scripts %}

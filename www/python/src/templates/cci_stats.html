@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Overview stats of open CCI cases on enwiki</h2>
+<h5 class="timestamp">As of {{timestamp}}</h5>
+<p>Note: Closed cases are highlighted in yellow. They will be removed from this table a few days after being closed.</p>
+<table class="table" data-toggle="table">
+<thead>
+<tr>
+<th data-sortable="true">Case name</th>
+<th data-sortable="true">Total pages in case</th>
+<th data-sortable="true">Pages with outstanding diffs</th>
+<th data-sortable="true">Total remaining diffs</th>
+<th data-sortable="true">% complete (pages)</th>
+<th data-sortable="true">Mean diffs per page</th>
+</tr>
+</thead>
+<tbody>
+{% for case in cases %}
+<tr 
+{% if case[4] == 1 %}
+        class="closed"
+{% endif %}
+>
+<td><a href="https://en.wikipedia.org/wiki/Wikipedia:Contributor_copyright_investigations/{{ case[0] }}">{{ case[0] }}</a></td>
+<td>{{ case[1] }}</td>
+{% if case[4] == 1 %}
+        <td>0</td>
+        <td>0</td>
+        <td>100</td>
+        <td>0</td>
+{% else %}
+        <td>{{ case[2] }}</td>
+        <td>{{ case[3] }}</td>
+        <td>{{ (100*(case[1] - case[2]) / case[1])|round(2)  }}</td>
+        {% if case[3] == 0 %}
+                <td> 0 </td>
+        {% else %}
+                <td>{{ (case[3] / case[2])|round(2) }}</td>
+        {% endif %}
+{% endif %}
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock content %}
+
+{% block extra_scripts %}
+<link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-table/1.18.2/bootstrap-table.min.css">
+<script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-table/1.18.2/bootstrap-table.min.js
+"></script>
+{% endblock extra_scripts %}

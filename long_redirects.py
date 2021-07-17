@@ -24,6 +24,6 @@ with conn.cursor() as cur:
 	now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 	print("{} - Running long redirect query on wiki {}".format(now, wiki))
 	cur.execute("select page_namespace,page_title from page where page_is_redirect=True order by char_length(page_title) desc limit {};".format(limit))
-	redirects = [ns, redir.decode("utf-8") for ns, redir in  list(cur.fetchall())]
+	redirects = [(ns, redir.decode("utf-8")) for ns, redir in list(cur.fetchall())]
 
 pickle.dump(redirects, open("/data/project/fireflytools/www/python/src/data/long_redirects_{}.dat".format(wiki), "wb"))

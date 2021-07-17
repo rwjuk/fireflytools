@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /data/project/fireflytools
-source www/python/venv/bin/activate
+source www/python/venv3/bin/activate
 ./linter_counts.py enwiki &
 ./linter_counts.py dewiki &
 ./linter_counts.py commonswiki &
@@ -17,4 +17,3 @@ wait
 ./linter_counts.py arwiki &
 ./linter_counts.py viwiki &
 ./linter_counts.py plwiki &
-wait

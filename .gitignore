@@ -5,11 +5,22 @@ www/python/src/data/
 www/python/venv/
 dbtest/
 logs/
+venv/
+env/
+sge-venv/
+fireflytools/
+~venv/
+www/python/venv.gridengine/
+www/python/venv3/
+__pycache__/
+tmp/
 
 cron*
+*.log
 *.out
 *.err
-
+*.txt
+*.save
 replica.my.cnf
 service.manifest
 uwsgi.log
